@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SEVER_TEMP="/temp_target"
+SEVER_PATH="/target"
+SEVER_FOLDER="/web"
+
+echo "폴더 생성 - $SEVER_PATH"
+mkdir -p $SEVER_PATH
+
+echo "파일 이동 - $SEVER_TEMP -> $SEVER_PATH"
+mv $SEVER_TEMP $SEVER_PATH
+
+echo "파일 삭제 - $SEVER_PATH$SEVER_FOLDER"
+rm -rf $SEVER_PATH$SEVER_FOLDER
+
+echo "파일 이동 - $SEVER_PATH$SEVER_TEMP -> $SEVER_PATH$SEVER_FOLDER"
+mv $SEVER_PATH$SEVER_TEMP $SEVER_PATH$SEVER_FOLDER
+
+echo "데이터 확인 - $SEVER_PATH$SEVER_FOLDER"
+cd $SEVER_PATH$SEVER_FOLDER
+pwd
+ls -alh
